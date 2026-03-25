@@ -1,0 +1,40 @@
+name: Cineplex Monitor
+
+on:
+  schedule:
+    # Runs every 10 minutes
+    - cron: '*/10 * * * *'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  check-showtimes:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Restore state
+        uses: actions/cache/restore@v4
+        with:
+          path: states.json
+          key: monitor-state
+
+      - name: Run monitor
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: python Monitor.py
+
+      - name: Save state
+        uses: actions/cache/save@v4
+        with:
+          path: states.json
+          key: monitor-state-${{ github.run_id }}
