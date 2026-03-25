@@ -66,3 +66,4 @@ WebScrapper/
 - **BeautifulSoup4** — HTML parsing
 - **discord-webhook** — Discord notifications
 - **python-dotenv** — Environment variable management
+- **schedule** — Task scheduling
