@@ -67,3 +67,4 @@ WebScrapper/
 - **discord-webhook** — Discord notifications
 - **python-dotenv** — Environment variable management
 - **schedule** — Task scheduling
+## Contributing
