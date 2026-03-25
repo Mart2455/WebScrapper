@@ -8,7 +8,6 @@ A web scraping application with Discord webhook notifications. Scrapes target we
 - Parse and extract relevant data from pages
 - Send formatted notifications to Discord via webhooks
 - Configurable scraping targets and intervals
--small edit
 ## Setup
 
 ### Prerequisites
