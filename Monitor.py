@@ -8,7 +8,7 @@ from datetime import datetime
 
 MOVIE_URL = "https://www.cineplex.com/movie/the-odyssey?openTM=true&theatreId=7408"
 
-DISCORD_WEBHOOK_URL = os.environ.get("DISCORD_WEBHOOK", "https://discordapp.com/api/webhooks/1486212960111300738/SDbhnezrP4qKuawaepJRYlEIBYLyCSgrLKFPBUD9wGovoX8ZC5OZ3OucyGAdbQzEE4Bb")
+DISCORD_WEBHOOK_URL = os.environ.get("DISCORD_WEBHOOK")
 
 # Cineplex API endpoint for showtimes
 SHOWTIMES_API = "https://apis.cineplex.com/prod/cpx/theatrical/api/v1/showtimes"
