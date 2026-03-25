@@ -26,7 +26,7 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: states.json
-          key: monitor-state-test-v1
+          key: monitor-state-test-v2
 
       - name: Run monitor
         env:
@@ -37,4 +37,4 @@ jobs:
         uses: actions/cache/save@v4
         with:
           path: states.json
-          key: monitor-state-test-v1
+          key: monitor-state-test-v2
