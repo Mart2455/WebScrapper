@@ -134,13 +134,13 @@ def main():
                 new_showtimes = count - previous_count
                 if previous_count == 0:
                     message = (
-                        f"🎬 **{MOVIE_NAME}** tickets are now available at "
-                        f"**{location}**! ({count} showtime(s))\n"
-                        f"Book here: {MOVIE_URL}"
+                            f"@everyone 🎬 **{MOVIE_NAME}** tickets are now available at "
+                            f"**{location}**! ({count} showtime(s))\n"
+                            f"Book here: {MOVIE_URL}"
                     )
                 else:
                     message = (
-                        f"🎬 **{new_showtimes} NEW showtime(s)** for **{MOVIE_NAME}** at "
+                        f"@everyone 🎬 **{new_showtimes} NEW showtime(s)** for **{MOVIE_NAME}** at "
                         f"**{location}**! (now {count} total)\n"
                         f"Book here: {MOVIE_URL}"
                     )
