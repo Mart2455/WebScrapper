@@ -19,6 +19,7 @@ SHOWTIMES_API = "https://apis.cineplex.com/prod/cpx/theatrical/api/v1/showtimes"
 TARGET_THEATRES = {
     "7408": "Vaughan, ON",
     "7420": "Mississauga, ON",  # Cineplex Cinemas Mississauga Square One
+    "9406": "Montreal, QC"
 }
 
 MOVIE_NAME = "The Odyssey"

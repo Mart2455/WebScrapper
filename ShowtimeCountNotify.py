@@ -54,12 +54,14 @@ def get_showtime_count():
             "locationId": THEATRE_ID,
             "date": date,
         }, headers={
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+             ### Use a realistic User-Agent to avoid potential blocking
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",   
             "Accept": "application/json",
             "Referer": "https://www.cineplex.com/",
             "Origin": "https://www.cineplex.com",
             "Ocp-Apim-Subscription-Key": "dcdac5601d864addbc2675a2e96cb1f8",
         }, timeout=15)
+        # Handle different response scenarios
         if resp.status_code == 200:
             data = resp.json() if resp.text else {}
             total_showings = 0
@@ -73,15 +75,18 @@ def get_showtime_count():
                 return total_showings
             else:
                 print("Unexpected response format or no data.")
+        # Some theatres return 204 No Content when there are no showtimes for the day, which is a valid response indicating zero showings. We can treat this as zero showings rather than an error.
         elif resp.status_code == 204:
             print("No showtimes data for this theatre today (204 No Content)")
+
         else:
-            print(f"API error: {resp.status_code} - {resp.text[:200]}")
+            print(f"API error: {resp.status_code} - {resp.text[:200]}") # Print first 200 chars of response for debugging
     except Exception as e:
         print(f"Error checking showtimes: {e}")
     return None
 
 def main():
+    # Load previous count, get current count, compare and notify if changed
     previous_count = load_state()
     current_count = get_showtime_count()
     if current_count is not None:
