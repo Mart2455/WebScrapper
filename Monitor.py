@@ -68,7 +68,7 @@ def CheckShowtimes():
                 "Accept": "application/json",
                 "Referer": "https://www.cineplex.com/", # Some APIs require a Referer header matching the site
                 "Origin": "https://www.cineplex.com",
-                "Ocp-Apim-Subscription-Key": "dcdac5601d864addbc2675a2e96cb1f8",
+                "Ocp-Apim-Subscription-Key": os.environ.get("CINEPLEX_API"),
             }, timeout=15)
 
             if resp.status_code == 200:
